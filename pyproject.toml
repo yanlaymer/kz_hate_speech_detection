@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "nlp_ods_mlops"
+version = "0.1.0"
+description = ""
+authors = ["a.nurlanuly <a.nurlanuly@vlife.kz>"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+pandas = "^1.4.2"
+nltk = "^3.7"
+scikit-learn = "^1.1.1"
+lightgbm = "^3.3.2"
+dvc = "^2.10.2"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
