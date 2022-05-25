@@ -1,0 +1,52 @@
+schema: '2.0'
+stages:
+  preprocessing:
+    cmd: python src/data/make_dataset.py "data/raw/ytb_comments (1).csv" data/interim/ytb_comments_preprocessed.csv
+    deps:
+    - path: data/raw/ytb_comments (1).csv
+      md5: 6e535b1fed6dba281821ef16793a4d04
+      size: 162456
+    - path: src/data/make_dataset.py
+      md5: 285a2ed46548d1d95d8620c4c8e0b505
+      size: 1466
+    outs:
+    - path: data/interim/ytb_comments_preprocessed.csv
+      md5: f00e3486f3677c8798c7e689a2bbdf1d
+      size: 156608
+  prepare_dataset:
+    cmd: python src/models/prepare_datasets.py data/interim/ytb_comments_preprocessed.csv
+      data/processed/train_test/train.csv data/processed/train_test/test.csv
+    deps:
+    - path: data/interim/ytb_comments_preprocessed.csv
+      md5: f00e3486f3677c8798c7e689a2bbdf1d
+      size: 156608
+    - path: src/models/prepare_datasets.py
+      md5: 263d807eaad11ff822e5aba9895339d1
+      size: 657
+    outs:
+    - path: data/processed/train_test/test.csv
+      md5: 6438249ea48c4da23d827c0a7e9af570
+      size: 37364
+    - path: data/processed/train_test/train.csv
+      md5: d4bba631db6eef5a964b98268a2a4bfd
+      size: 118643
+  train:
+    cmd: python src/models/train_model.py data/processed/train_test/train.csv data/processed/train_test/test.csv
+      models/model.clf reports/metrics.json
+    deps:
+    - path: data/processed/train_test/test.csv
+      md5: 6438249ea48c4da23d827c0a7e9af570
+      size: 37364
+    - path: data/processed/train_test/train.csv
+      md5: d4bba631db6eef5a964b98268a2a4bfd
+      size: 118643
+    - path: src/models/train_model.py
+      md5: 2ea55a91c4c24d65d4efd2dbe9c36a3f
+      size: 2286
+    outs:
+    - path: models/model.clf
+      md5: e81a18142cd535d459140304fdd34dd9
+      size: 1440739
+    - path: reports/metrics.json
+      md5: dfc6c1a494c3a41ceb145abe501bbbea
+      size: 129
