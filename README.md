@@ -1,4 +1,4 @@
-nlp_ods_mlops
+Hate speech detection
 ==============================
 
 Hate speech detection on KZ youtube comments
@@ -45,6 +45,7 @@ Project Organization
     │   │   │                 predictions
     │   │   ├── predict_model.py
     │   │   └── train_model.py
+    │   │   └── prepare_dataset.py
     │   │
     │   └── visualization  <- Scripts to create exploratory and results oriented visualizations
     │       └── visualize.py
@@ -53,5 +54,3 @@ Project Organization
 
 
 --------
-
-<p><small>Project based on the <a target="_blank" href="https://drivendata.github.io/cookiecutter-data-science/">cookiecutter data science project template</a>. #cookiecutterdatascience</small></p>
