@@ -1,7 +1,7 @@
 nlp_ods_mlops
 ==============================
 
-A short description of the project.
+Hate speech detection on KZ youtube comments
 
 Project Organization
 ------------

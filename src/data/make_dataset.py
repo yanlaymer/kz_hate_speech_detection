@@ -21,7 +21,7 @@ def preprocess(input_filepath:str, output_filepath:str):
     df.text = df.text.apply(remove_punctuation)
     df.text = df.text.apply(remove_emojis)
 
-    df.to_csv(output_filepath)
+    df.to_csv(output_filepath, index=False)
     print("preprocessed data stored")
 
 
